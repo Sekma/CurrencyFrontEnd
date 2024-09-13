@@ -1,0 +1,162 @@
+<template>
+  <div class="w-75">
+    <div>
+      <h1>Hi Admin</h1>
+      <button @click.prevent="logout">Logout</button>
+    </div>
+
+    <div>
+      <h4>Currencies</h4>
+      <VTable :data="responseData">
+        <template #head>
+          <tr>
+            <th>ID</th>
+            <th>Currency</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </template>
+        <template #body="{rows}">
+          <tr v-for="row in rows" :key="row.id">
+            <td>{{ row.id }}</td>
+            <td>{{ row.currency }}</td>
+            <td><RouterLink @click="editCurrency(row.id, row.currency)" to="/edit-currency">Edit</RouterLink></td>
+            <td><a @click="deleteCurrency(row.id, row.currency)">Delete</a></td>
+          </tr>
+        </template>
+      </VTable>
+    </div>
+    <RouterLink to="/create-currency">Create a new currency</RouterLink>
+    <div>
+      <h4>Pairs</h4>
+      <VTable :data="responseDataPair">
+        <template #head>
+          <tr>
+            <th>ID</th>
+            <th>Pair</th>
+            <th>Exchange</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </template>
+        <template #body="{rows}">
+          <tr v-for="row in rows" :key="row.pair_id">
+            <td>{{ row.pair_id }}</td>
+            <td>{{ row.currency_1 }} -> {{ row.currency_2 }}</td>
+            <td>{{ row.exchange }}</td>
+            <td><RouterLink @click="editPair(row.pair_id, row.currency_1, row.currency_2, row.exchange)" to="/edit-pair">Edit</RouterLink></td>
+            <td><a @click="deletePair(row.pair_id, row.currency_1, row.currency_2)">Delete</a></td>
+          </tr>
+        </template>
+      </VTable>
+    </div>
+
+    <RouterLink to="/create-pair">Create a new pair</RouterLink>
+  </div>
+</template>
+<script>
+
+import axios from "axios";
+
+export default {
+  data() { 
+    return {
+      responseData: null,
+      responseDataPair: null,
+      error: null,
+      }
+    },
+    methods: {
+     logout() {
+      if(confirm("Are you sure you want to log out?")) {
+         axios.get('http://localhost:8000/api/logout').then(response => {
+          localStorage.removeItem('token');
+          
+          // remove any other authenticated user data you put in local storage
+
+          // Assuming that you set this earlier for subsequent Ajax request at some point like so:
+          // axios.defaults.headers.common['Authorization'] = 'Bearer ' + token ;
+          delete axios.defaults.headers.common['Authorization'];
+
+          // If using 'vue-router' redirect to login page
+          this.$router.go('/login');
+        })
+        .catch(error => {
+          // If the api request failed then you still might want to remove
+          // the same data from localStorage anyways
+          // perhaps this code should go in a finally method instead of then and catch
+          // methods to avoid duplication.
+          localStorage.removeItem('token');
+          delete axios.defaults.headers.common['Authorization'];
+          this.$router.go('/login');
+        });       
+       }
+     },
+
+     //for currencies
+     fetchData(){
+        axios.get('http://127.0.0.1:8000/api/currencies').then(response => 
+          {
+            this.responseData = response.data.currencies
+            console.log(response.data.currencies)
+          }
+        ).catch(error => this.error = error) 
+      },
+      
+      //delete and edit currency
+      deleteCurrency(id, currency){
+          if(confirm("Are you sure you want delete " +currency+ " ?")){
+            axios.delete('http://127.0.0.1:8000/api/delete_currency/'+id)
+          .then((response) => {
+
+            alert(response.data.message);
+            location.reload(); // Reloads the current page
+          })
+          .catch((error) => {
+              alert(response.data.message);
+          });
+        }
+    },
+    editCurrency(id, currency){
+      localStorage.setItem("id", id);
+      localStorage.setItem("currency", currency);
+    },
+
+    //for pairs
+    fetchDataPair(){
+        axios.get('http://127.0.0.1:8000/api/pairs').then(response => 
+          {
+            this.responseDataPair = response.data.pairs
+            console.log(response.data)
+          }
+        ).catch(error => this.error = error) 
+      },
+    //delete and edit pair
+    deletePair(id, currency_1, currency_2){
+          if(confirm("Are you sure you want delete " +currency_1+ " -> " +currency_2+ " ?")){
+            axios.delete('http://127.0.0.1:8000/api/delete_pair/'+id)
+          .then((response) => {
+
+            alert(response.data.message);
+            location.reload(); // Reloads the current page
+          })
+          .catch((error) => {
+              alert(response.data.message);
+          });
+        }
+    },
+    editPair(id, currency_1, currency_2, exchange){
+      localStorage.setItem("id", id);
+      localStorage.setItem("currency_1", currency_1);
+      localStorage.setItem("currency_2", currency_2);
+      localStorage.setItem("exchange", exchange);
+    }
+   },
+    created(){
+      this.fetchData()
+      this.fetchDataPair()
+    },
+     
+   
+};
+</script>
