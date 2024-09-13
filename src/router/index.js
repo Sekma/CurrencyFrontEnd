@@ -30,22 +30,26 @@ const router = createRouter({
     {
       path: '/create-currency',
       name: 'CreateCurrency',
-      component: CreateCurrency
+      component: CreateCurrency,
+      meta: { requiresAuth: true }  // Mark this route as requiring authentication
     },
     {
       path: '/edit-currency',
       name: 'EditCurrency',
-      component: EditCurrency
+      component: EditCurrency,
+      meta: { requiresAuth: true }  // Mark this route as requiring authentication
     },
     {
       path: '/create-pair',
       name: 'CreatePair',
-      component: CreatePair
+      component: CreatePair,
+      meta: { requiresAuth: true }  // Mark this route as requiring authentication
     },
     {
       path: '/edit-pair',
       name: 'EditPair',
-      component: EditPair
+      component: EditPair,
+      meta: { requiresAuth: true }  // Mark this route as requiring authentication
     }
   ]
 })
