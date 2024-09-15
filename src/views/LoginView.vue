@@ -1,5 +1,5 @@
 <template>
-  <div class="border shadow mt-3 p-3">
+  <div class="border shadow mt-5 p-3">
     <h2 class="text-center mt-3">Login</h2>
     <form @submit.prevent="login">
       <div class="form-group">
@@ -11,7 +11,7 @@
         <label for="exampleInputPassword1">Password</label>
         <input v-model="password"  type="password" class="form-control shadow-sm mt-2" id="exampleInputPassword1" placeholder="Password">
       </div>
-      <button type="submit" class="btn btn-primary shadow mt-3 w-50">Login</button>
+      <button type="submit" class="btn btn-success shadow mt-3 w-25">Login</button>
     </form>
   </div>
 </template>

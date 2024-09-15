@@ -1,23 +1,26 @@
 <template lang="">
-    <div>
-        <h2>Create a new pair</h2>
+    <div class="p-2">
+        <div class="d-flex justify-content-between">
+            <h2>Create a new Pair</h2>
+            <router-link to="/admin" class="btn btn-outline-success shadow-sm fw-bold" style="height:40px">Return</router-link>
+        </div>
         <form class="form-group" @submit.prevent="checkForm" method="post">
-            <div class="form-inline mx-sm-3 mb-2">
-                <label for="currency_1_id">Currency 1</label>
-                <select v-model="currency_1_id" class="form-control" id="currency_1_id">
+            <div class="form-inline mx-sm-3 mb-2 mt-5">
+                <label class="fw-bold" for="currency_1_id">Currency 1 :</label>
+                <select v-model="currency_1_id" class="form-control shadow-sm my-2 " id="currency_1_id">
                 <option value="" disabled selected>Select currency 1</option>
                 <option v-for="currency in responseData" :key="currency.id" :value="currency.id">{{currency.currency}}</option>
                 </select>
-                <label for="currency_2_id">Currency 2</label>
-                <select v-model="currency_2_id" class="form-control" id="currency_2_id">
+                <label class="fw-bold" for="currency_2_id">Currency 2 :</label>
+                <select v-model="currency_2_id" class="form-control shadow-sm my-2" id="currency_2_id">
                 <option value="" disabled selected>Select currency 2</option>
                 <option v-for="currency in responseData" :key="currency.id" :value="currency.id">{{currency.currency}}</option>
                 </select>
-                <label for="exchange" class="sr-only">Exchange</label>
-                <input v-model="exchange" type="text" class="form-control" id="name" placeholder="0.00" min="0" value="0" step="0.01"
+                <label class="fw-bold" for="exchange">Exchange :</label>
+                <input v-model="exchange" type="text" class="form-control shadow-sm my-2" id="name" placeholder="0.00" min="0" value="0" step="0.01"
                 pattern="^\d+(?:\.\d{1,2})?$" onblur="this.parentNode.parentNode.style.backgroundColor=/^\d+(?:\.\d{1,2})?$/.test(this.value)?'inherit':'red'">
+                <button type="submit" class="btn btn-primary mb-2 w-25">Create</button>
             </div>
-            <button type="submit" class="btn btn-primary mb-2">Create</button>
           </form>
     </div>
 </template>

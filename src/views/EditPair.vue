@@ -1,14 +1,16 @@
 <template lang="">
-    <div>
-        <h2>Edit Pair "{{currency_1}}" -> "{{currency_2}}"</h2>
-
+    <div class="p-2">
+        
+        <div class="d-flex justify-content-between">
+            <h2>Edit "{{currency_1}}" -> "{{currency_2}}" Exchange :</h2>
+            <router-link to="/admin" class="btn btn-outline-success shadow-sm fw-bold" style="height:40px">Return</router-link>
+        </div>
         <form class="form-group" @submit.prevent="edit()" method="PUT">
-            <div class="form-inline mx-sm-3 mb-2">
-                <label for="exchange" class="sr-only">Exchange</label>
+            <div class="input-group mx-sm-3 shadow mt-5">
                 <input v-model="exchange" type="text" class="form-control" id="exchange" :placeholder= exchange min="0" value="0" step="0.01"
-                pattern="^\d+(?:\.\d{1,2})?$" onblur="this.parentNode.parentNode.style.backgroundColor=/^\d+(?:\.\d{1,2})?$/.test(this.value)?'inherit':'red'">
+                pattern="^\d+(?:\.\d{1,2})?$" onblur="this.parentNode.parentNode.style.backgroundColor=/^\d+(?:\.\d{1,2})?$/.test(this.value)?'inherit':'red'">   
+                <button type="submit" class="btn btn-primary">Edit</button>
             </div>
-            <button type="submit" class="btn btn-primary mb-2">Edit</button>
         </form>
     </div>
 </template>

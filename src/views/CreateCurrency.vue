@@ -1,12 +1,14 @@
 <template lang="">
-    <div>
-        <h2>Create a new currency</h2>
+    <div class="p-2">
+        <div class="d-flex justify-content-between">
+            <h2>Create a new Currency</h2>
+            <router-link to="/admin" class="btn btn-outline-success shadow-sm fw-bold" style="height:40px">Return</router-link>
+        </div>
         <form class="form-group" @submit.prevent="checkForm" method="post">
-            <div class="form-inline mx-sm-3 mb-2">
-              <label for="name" class="sr-only">Currency</label>
+            <div class="input-group mx-sm-3 shadow mt-5">
               <input v-model="name" type="text" class="form-control" id="name" placeholder="Currency">
+              <button type="submit" class="btn btn-primary">Create</button>
             </div>
-            <button type="submit" class="btn btn-primary mb-2">Create</button>
           </form>
     </div>
 </template>

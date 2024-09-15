@@ -1,57 +1,59 @@
 <template>
-  <div class="w-75">
-    <div>
-      <h1>Hi Admin</h1>
-      <button @click.prevent="logout">Logout</button>
+  <div class="p-2">
+    <div class="d-flex justify-content-between">
+      <h1>Hi Admin..!</h1>
+      <a @click.prevent="logout" class="btn btn-danger shadow-sm" style="height:40px">Logout</a>
     </div>
+<div class="data-table d-flex justify-content-between mt-1 text-center">
+  <div>
+    <h4 class="text-success bg-light p-2">Currencies</h4>
+    <VTable class="table table-striped border" :data="responseData">
+      <template #head>
+        <tr class="table-success">
+          <th class="fw-bold">ID</th>
+          <th class="fw-bold">Currency</th>
+          <th class="fw-bold">Edit</th>
+          <th class="fw-bold">Delete</th>
+        </tr>
+      </template>
+      <template #body="{rows}">
+        <tr v-for="row in rows" :key="row.id">
+          <td>{{ row.id }}</td>
+          <td>{{ row.currency }}</td>
+          <td><RouterLink class="btn btn-outline-warning fw-bold" @click="editCurrency(row.id, row.currency)" to="/edit-currency">Edit</RouterLink></td>
+          <td><a class="btn btn-outline-danger fw-bold" @click="deleteCurrency(row.id, row.currency)">Delete</a></td>
+        </tr>
+      </template>
+    </VTable>
+    <RouterLink to="/create-currency" class="btn btn-primary shadow" >Create a new currency</RouterLink>
+  </div>
+  <div>
+    <h4 class="text-success bg-light p-2">Pairs</h4>
+    <VTable class="table table-striped border" :data="responseDataPair">
+      <template #head>
+        <tr class="table-success">
+          <th class="fw-bold">ID</th>
+          <th class="fw-bold">Pair</th>
+          <th class="fw-bold">Exchange</th>
+          <th class="fw-bold">Edit</th>
+          <th class="fw-bold">Delete</th>
+        </tr>
+      </template>
+      <template #body="{rows}">
+        <tr v-for="row in rows" :key="row.pair_id">
+          <td>{{ row.pair_id }}</td>
+          <td>{{ row.currency_1 }} -> {{ row.currency_2 }}</td>
+          <td>{{ row.exchange }}</td>
+          <td><RouterLink class="btn btn-outline-warning fw-bold" @click="editPair(row.pair_id, row.currency_1, row.currency_2, row.exchange)" to="/edit-pair">Edit</RouterLink></td>
+          <td><a class="btn btn-outline-danger fw-bold" @click="deletePair(row.pair_id, row.currency_1, row.currency_2)">Delete</a></td>
+        </tr>
+      </template>
+    </VTable>
+  <RouterLink to="/create-pair" class="btn btn-primary shadow" >Create a new pair</RouterLink>
+  </div>
+</div>
+    
 
-    <div>
-      <h4>Currencies</h4>
-      <VTable :data="responseData">
-        <template #head>
-          <tr>
-            <th>ID</th>
-            <th>Currency</th>
-            <th>Edit</th>
-            <th>Delete</th>
-          </tr>
-        </template>
-        <template #body="{rows}">
-          <tr v-for="row in rows" :key="row.id">
-            <td>{{ row.id }}</td>
-            <td>{{ row.currency }}</td>
-            <td><RouterLink @click="editCurrency(row.id, row.currency)" to="/edit-currency">Edit</RouterLink></td>
-            <td><a @click="deleteCurrency(row.id, row.currency)">Delete</a></td>
-          </tr>
-        </template>
-      </VTable>
-    </div>
-    <RouterLink to="/create-currency">Create a new currency</RouterLink>
-    <div>
-      <h4>Pairs</h4>
-      <VTable :data="responseDataPair">
-        <template #head>
-          <tr>
-            <th>ID</th>
-            <th>Pair</th>
-            <th>Exchange</th>
-            <th>Edit</th>
-            <th>Delete</th>
-          </tr>
-        </template>
-        <template #body="{rows}">
-          <tr v-for="row in rows" :key="row.pair_id">
-            <td>{{ row.pair_id }}</td>
-            <td>{{ row.currency_1 }} -> {{ row.currency_2 }}</td>
-            <td>{{ row.exchange }}</td>
-            <td><RouterLink @click="editPair(row.pair_id, row.currency_1, row.currency_2, row.exchange)" to="/edit-pair">Edit</RouterLink></td>
-            <td><a @click="deletePair(row.pair_id, row.currency_1, row.currency_2)">Delete</a></td>
-          </tr>
-        </template>
-      </VTable>
-    </div>
-
-    <RouterLink to="/create-pair">Create a new pair</RouterLink>
   </div>
 </template>
 <script>
@@ -160,3 +162,11 @@ export default {
    
 };
 </script>
+<style scoped>
+@media (max-width: 996px){
+  .data-table{
+    flex-direction: column;
+  }
+}
+
+</style>

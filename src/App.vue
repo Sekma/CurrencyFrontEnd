@@ -1,6 +1,5 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
@@ -13,29 +12,28 @@ import HelloWorld from './components/HelloWorld.vue'
      type="text/css"
      rel="stylesheet"
      href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css"/>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <div class="view">
-    <nav>
+  <div>
+    <nav class="border-bottom">
       <RouterLink to="/">Home</RouterLink>
       <RouterLink to="/admin">Admin</RouterLink>
     </nav>
     <main>
-      <RouterView class="m-auto"/>
+      <RouterView class="view"/>
     </main>
   </div>
    
 </template>
 
 <style>
-.view{
-  height: 100vh;
-}
+
 nav {
-  width: 100vh;
+  width: 80vh;
   font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-  padding: 30px;
+  text-align: start;
+  margin-top: 0.5rem;
+  padding: 1rem 0;
 }
 
 nav a.router-link-exact-active {
@@ -77,11 +75,9 @@ nav a:first-of-type {
   }
 
   nav {
-    text-align: center;
-    margin-left: -1rem;
+    width: 120vh;
     font-size: 1rem;
-
-    padding: 1rem 0;
+    padding: 0.5rem 0;
     margin-top: 1rem;
   }
 }
