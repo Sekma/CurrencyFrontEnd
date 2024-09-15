@@ -34,7 +34,8 @@
         <tr class="table-success">
           <th class="fw-bold">ID</th>
           <th class="fw-bold">Pair</th>
-          <th class="fw-bold">Exchange</th>
+          <th class="fw-bold">Exch</th>
+          <th class="fw-bold">NbConvet</th>
           <th class="fw-bold">Edit</th>
           <th class="fw-bold">Delete</th>
         </tr>
@@ -42,8 +43,9 @@
       <template #body="{rows}">
         <tr v-for="row in rows" :key="row.pair_id">
           <td>{{ row.pair_id }}</td>
-          <td>{{ row.currency_1 }} -> {{ row.currency_2 }}</td>
+          <td style="font-size:12px">{{ row.currency_1 }} -> {{ row.currency_2 }}</td>
           <td>{{ row.exchange }}</td>
+          <td>{{ row.conversions }}</td>
           <td><RouterLink class="btn btn-outline-warning fw-bold" @click="editPair(row.pair_id, row.currency_1, row.currency_2, row.exchange)" to="/edit-pair">Edit</RouterLink></td>
           <td><a class="btn btn-outline-danger fw-bold" @click="deletePair(row.pair_id, row.currency_1, row.currency_2)">Delete</a></td>
         </tr>
@@ -163,7 +165,7 @@ export default {
 };
 </script>
 <style scoped>
-@media (max-width: 996px){
+@media (max-width: 1024px){
   .data-table{
     flex-direction: column;
   }
