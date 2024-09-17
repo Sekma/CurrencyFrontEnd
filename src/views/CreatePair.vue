@@ -43,7 +43,6 @@ export default {
         axios.get('http://127.0.0.1:8000/api/currencies').then(response => 
           {
             this.responseData = response.data.currencies
-            console.log(response.data.currencies)
           }
         ).catch(error => this.error = error) 
       },

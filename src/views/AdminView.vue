@@ -4,7 +4,11 @@
       <h1>Hi Admin..!</h1>
       <a @click.prevent="logout" class="btn btn-danger shadow-sm" style="height:40px">Logout</a>
     </div>
-<div class="data-table d-flex justify-content-between mt-1 text-center">
+    <div v-if="!responseData.length" class="text-center mt-5">
+      <h4 class="text-success">Loading...</h4>
+      <img src="/src/assets/logo.png" width="100px"/>
+    </div>
+<div v-else class="data-table d-flex justify-content-between mt-1 text-center" >
   <div>
     <h4 class="text-success bg-light p-2">Currencies</h4>
     <VTable class="table table-striped border" :data="responseData">
@@ -65,8 +69,8 @@ import axios from "axios";
 export default {
   data() { 
     return {
-      responseData: null,
-      responseDataPair: null,
+      responseData: [],
+      responseDataPair: [],
       error: null,
       }
     },
@@ -102,7 +106,6 @@ export default {
         axios.get('http://127.0.0.1:8000/api/currencies').then(response => 
           {
             this.responseData = response.data.currencies
-            console.log(response.data.currencies)
           }
         ).catch(error => this.error = error) 
       },
@@ -131,7 +134,6 @@ export default {
         axios.get('http://127.0.0.1:8000/api/pairs').then(response => 
           {
             this.responseDataPair = response.data.pairs
-            console.log(response.data)
           }
         ).catch(error => this.error = error) 
       },
