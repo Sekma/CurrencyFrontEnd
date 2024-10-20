@@ -76,7 +76,7 @@ utilisateur dans l'interface d'administration.
 ### Login
 
 <div display:inline-block>
-    <img src="https://github.com/Sekma/CurrencyFrontEnd/blob/main/img-interface/welcome.jpeg" style="border: 1px solid black;" width="45%" alt="">
+    <img src="https://github.com/Sekma/CurrencyFrontEnd/blob/main/img-interface/welcome.jpeg" style="border: 2px solid black; margin: 5px;" width="45%" alt="">
     <img src="https://github.com/Sekma/CurrencyFrontEnd/blob/main/img-interface/login.jpeg" style="border: 1px solid black;" width="45%" align=right alt="">
 </div><br><br>
 
