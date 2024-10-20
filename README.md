@@ -1,10 +1,3 @@
-<style>
-    .bordered {
-        border: 3px solid black;
-        margin: 5px;
-        display: inline-block;
-    }
-</style>
 <div style="text-align: center;">
     <h1>Currency Converter</h1>
     <img src="https://github.com/Sekma/CurrencyFrontEnd/blob/main/src/assets/logo.png" width="20%" alt=""><br><br>
@@ -83,7 +76,7 @@ utilisateur dans l'interface d'administration.
 ### Login
 
 <div display:inline-block>
-    <img class="bordered" src="https://github.com/Sekma/CurrencyFrontEnd/blob/main/img-interface/welcome.jpeg" width="45%" alt="">
+    <img src="https://github.com/Sekma/CurrencyFrontEnd/blob/main/img-interface/welcome.jpeg" width="45%" alt="">
     <img src="https://github.com/Sekma/CurrencyFrontEnd/blob/main/img-interface/login.jpeg" width="45%" align=right alt="">
 </div><br><br>
 
