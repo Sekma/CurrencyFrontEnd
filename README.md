@@ -18,7 +18,7 @@ intuitive pour la gestion des données.
 d'utilisation, et ses fonctionnalités intégrées telles que l'ORM Eloquent et le 
 système de routage, ce qui facilite le développement rapide et la maintenance. 
      <br>
-        <a href="https://github.com/Sekma/CurrencyBackEnd" target="_blank">Code Frontend (Administration)</a>
+        <a href="https://github.com/Sekma/CurrencyBackEnd" target="_blank">Code Backend (Administration)</a>
     </li>
     <li>Base de données : MySQL est sélectionné pour sa fiabilité et sa capacité à 
 gérer des données structurées, ce qui est essentiel pour la gestion des devises 
