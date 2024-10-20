@@ -1,6 +1,10 @@
-# frontend
+# 1. Analyse Client 
 
-This template should help get you started developing with Vue 3 in Vite.
+Currency Converter est une application spécialisée dans la conversion monétaire, 
+visant à fournir un service public permettant aux développeurs d'accéder à des 
+données de conversion. Les implications techniques incluent le besoin d'une API REST 
+robuste pour gérer les conversions entre devises et d'une interface d'administration 
+intuitive pour la gestion des données.
 
 ## Recommended IDE Setup
 
