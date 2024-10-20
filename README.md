@@ -76,28 +76,28 @@ utilisateur dans l'interface d'administration.
 ### Login
 
 <div display:inline-block>
-    <img src="https://github.com/Sekma/CurrencyFrontEnd/blob/main/img-interface/welcome.jpeg" width="45%" alt="">
-    <img src="https://github.com/Sekma/CurrencyFrontEnd/blob/main/img-interface/login.jpeg" width="45%" align=right alt="">
+    <img src="https://github.com/Sekma/CurrencyFrontEnd/blob/main/img-interface/welcome.jpeg" style="border: 1px solid black;" width="45%" alt="">
+    <img src="https://github.com/Sekma/CurrencyFrontEnd/blob/main/img-interface/login.jpeg" style="border: 1px solid black;" width="45%" align=right alt="">
 </div><br><br>
 
 ### Accueil Admin
 
 <div display:inline-block>
-    <img src="https://github.com/Sekma/CurrencyFrontEnd/blob/main/img-interface/admin.jpeg" width="45%" alt="">
+    <img src="https://github.com/Sekma/CurrencyFrontEnd/blob/main/img-interface/admin.jpeg" style="border: 1px solid black;" width="90%" alt="">
 </div><br><br>
 
 ### Gestion des devises
 
 <div display:inline-block>
-    <img src="https://github.com/Sekma/CurrencyFrontEnd/blob/main/img-interface/createCurrency.jpeg" width="45%" alt="">
-    <img src="https://github.com/Sekma/CurrencyFrontEnd/blob/main/img-interface/editCurrency.jpeg" width="45%" align=right alt="">
+    <img src="https://github.com/Sekma/CurrencyFrontEnd/blob/main/img-interface/createCurrency.jpeg" style="border: 1px solid black;" width="45%" alt="">
+    <img src="https://github.com/Sekma/CurrencyFrontEnd/blob/main/img-interface/editCurrency.jpeg" style="border: 1px solid black;" width="45%" align=right alt="">
 </div><br><br>
 
 ### Gestion des pairs
 
 <div display:inline-block>
-    <img src="https://github.com/Sekma/CurrencyFrontEnd/blob/main/img-interface/createPair.jpeg" width="45%" alt="">
-    <img src="https://github.com/Sekma/CurrencyFrontEnd/blob/main/img-interface/editPair.jpeg" width="45%" align=right alt="">
+    <img src="https://github.com/Sekma/CurrencyFrontEnd/blob/main/img-interface/createPair.jpeg" style="border: 1px solid black;" width="45%" alt="">
+    <img src="https://github.com/Sekma/CurrencyFrontEnd/blob/main/img-interface/editPair.jpeg" style="border: 1px solid black;" width="45%" align=right alt="">
 </div><br><br>
 
 # Fabriqué avec
